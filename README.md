@@ -43,3 +43,7 @@ The prototype generates all its inputs locally. It fits preprocessing and the mo
 The model flags more potential breaches and creates substantially more review work. The policies use different review volumes, so this comparison leaves open which policy performs better at the same review capacity. The strategy calls for an equal-capacity comparison on real, mature outcomes before live use. The metrics above are reproducible synthetic results. The production controls and rollout are reference designs.
 
 The [SQL support SLA case](https://github.com/teruece/SQL_Codes_and_Projects/tree/main/use-cases/support-sla-ageing) demonstrates the point-in-time reporting logic that would sit alongside this predictive workflow.
+
+## Related portfolio work
+
+My [project delivery case study](https://github.com/teruece/Governance_Framework_Documentation_Toolkit/tree/main/project-delivery) shows how I track scope, risk, acceptance evidence and handover across a BI rollout.
