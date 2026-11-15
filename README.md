@@ -1,6 +1,6 @@
 # AI governance, strategy and implementation in analytics
 
-A portfolio case study in taking an AI idea from selection and risk assessment to a working prototype. The example uses synthetic service-desk tickets to estimate SLA breach risk at intake. A queue analyst can use the score to choose which tickets to review. Priority changes stay with the analyst.
+I use this portfolio to show how I take an AI idea from selection and risk assessment to a working prototype. I built an SLA breach-risk model and two analytics agents around decisions a service desk, commercial analyst, or data operations team makes. The examples use synthetic data and leave operational decisions with the people who own them.
 
 | Start here | What it covers |
 | --- | --- |
@@ -8,8 +8,21 @@ A portfolio case study in taking an AI idea from selection and risk assessment t
 | [AI governance](docs/governance.md) and [sample risk register](docs/risk-register.md) | Assign accountability for data, model changes, human review, incident response and the decision to pause or release. |
 | [Analytics implementation](docs/implementation.md) | Design the intake features, time-based evaluation and BI reporting. Trace the score through review, outcome and monitoring. |
 | [Runnable Python demo](demo/README.md) | Train and evaluate a scikit-learn model, compare it with a priority rule, and inspect recommendations and manual fallback. |
+| [AI agents and use cases](docs/ai-agent-use-cases.md) | Run a KPI variance investigation and a data quality triage. Inspect the tools, evidence and human review points. |
 
-## Run the prototype
+## Run the AI agents
+
+I built two tool-using prototypes. One checks that reporting periods are closed before interpreting a variance. The other checks feed quality before recommending a human review. Both use a bounded set of read-only tools and generate reports from the evidence those tools return.
+
+```bash
+python -m agents kpi
+python -m agents quality --scenario blocked
+python -m unittest discover -s agents -t . -v
+```
+
+These commands run locally with Python 3.10 or newer and no additional packages. The default replays scripted tool calls. The [agent case studies](docs/ai-agent-use-cases.md) show the normal and blocked runs, the [optional model-backed setup](docs/ai-agent-use-cases.md#run-the-examples), and the controls I would test before a pilot.
+
+## Run the SLA prediction prototype
 
 From the repository root, install the pinned dependencies into a virtual environment. See the [demo guide](demo/README.md) for setup, commands and output.
 
